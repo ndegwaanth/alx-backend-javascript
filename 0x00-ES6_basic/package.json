@@ -5,10 +5,12 @@
     "dev": "npx babel-node",
     "test": "jest",
     "full-test": "eslint [0-9]*.js && jest",
-    "lint:fix": "eslint /home/anthony/all-code/ALX-projects/alx-backend-javascript/0x00-ES6_basic/*.js --fix"
+    "lint:fix": "eslint /home/anthony/all-code/ALX-projects/alx-backend-javascript/0x00-ES6_basic/*.js --fix",
+    "build": "babel src -d dist"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
+    "@babel/cli": "^7.24.7",
+    "@babel/core": "^7.24.7",
     "@babel/node": "^7.8.0",
     "@babel/preset-env": "^7.6.0",
     "@eslint/js": "^9.1.1",
