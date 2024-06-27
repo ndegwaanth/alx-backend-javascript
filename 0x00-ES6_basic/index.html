@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #demo {
+            text-align: center;
+            /* margin-top: 50%; */
+        }
+
+        div {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        {% for item in names %}
+            <a href="#"><h1 id="demo">{{ item }}</h1></a>
+        {% endfor %}
+    </div>
+    <script src="file.js"></script>
+</body>
+</html>
