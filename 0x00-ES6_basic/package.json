@@ -4,7 +4,8 @@
     "check-lint": "lint [0-9]*.js",
     "dev": "npx babel-node",
     "test": "jest",
-    "full-test": "eslint [0-9]*.js && jest"
+    "full-test": "eslint [0-9]*.js && jest",
+    "lint:fix": "eslint /home/anthony/all-code/ALX-projects/alx-backend-javascript/0x00-ES6_basic/*.js --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
