@@ -1,5 +1,3 @@
-// main.ts
-
 interface Teacher {
   readonly firstName: string;
   readonly lastName: string;
@@ -7,6 +5,10 @@ interface Teacher {
   yearsOfExperience?: number;
   location: string;
   [propName: string]: any;
+}
+
+interface Directors extends Teacher {
+    numberOfReports: number;
 }
 
 const teacher1: Teacher = {
@@ -26,5 +28,14 @@ const teacher2: Teacher = {
   contract: false,
 };
 
+const director1: Directors = {
+  firstName: "Alice",
+  lastName: "Johnson",
+  fullTimeEmployee: true,
+  location: "Boston",
+  numberOfReports: 10,
+};
+
 console.log(teacher1);
 console.log(teacher2);
+console.log(director1)
