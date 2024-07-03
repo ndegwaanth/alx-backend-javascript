@@ -51,3 +51,30 @@ console.log(director1)
 
 console.log(printTeacher("John", "Doe"));  // Output: J. Doe
 console.log(printTeacher("Jane", "Smith"));  // Output: J. Smith
+
+// Interface for the constructor of the class
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentInterface;
+}
+
+// Interface for the class
+interface StudentInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+class StudentClass implements StudentInterface {
+  constructor(public firstName: string, public lastName: string) {}
+
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+const student: StudentInterface = new StudentClass("John", "Doe");
+console.log(student.displayName()); // Output: John
+console.log(student.workOnHomework()); // Output: Currently working
