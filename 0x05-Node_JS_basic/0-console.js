@@ -1,5 +1,3 @@
-#!/usr/bin/node
-
 const displayMessage = (letter) => {
   process.stdout.write(`${letter} \n`);
 };
