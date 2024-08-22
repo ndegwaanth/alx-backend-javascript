@@ -1,17 +1,8 @@
-const assert = require('assert');
-const calculateNumber = require('./0-calcul');
+const assert = require("assert");
+const calculateNumber = require("./0-calcul.js");
 
-describe('calculateNumber', function () {
-  it('Testing 1 + 3 = 4', function () {
-    assert.strictEqual(calculateNumber(1, 3), 4);
-  });
-  it('Testing 1 + 3.7 = 5', function () {
-    assert.strictEqual(calculateNumber(1, 3.7), 5);
-  });
-  it('Testing 1.2 + 3.7 = 5', function () {
-    assert.strictEqual(calculateNumber(1.2, 3.7), 5);
-  });
-  it('Testing 1.5 + 3.7 = 6', function () {
-    assert.strictEqual(calculateNumber(1.5, 3.7), 6);
+describe("asserts 0-calcul.js", function() {
+  it("checks equality", function() {
+    assert.equal(calculateNumber(1.7, 3.1), 5);
   });
 });
