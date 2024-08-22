@@ -1,4 +1,4 @@
-const calculateNumber = (a, b) => {
+function calculateNumber(a, b){
   const num1 = Math.round(a);
   const num2 = Math.round(b);
 
