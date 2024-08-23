@@ -1,15 +1,8 @@
+const { listen } = require('express/lib/application');
 const http = require('http');
-
-const hostname = 'localhost';
-const port = 1245;
-
-const app = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('content-type', 'text/plain');
-  res.end('Hello Holberton School!');
-});
-
-app.listen(port, hostname);
-
-
-module.exports = app;
+const app = http.createServer(function(req, res) {
+    res.write('Hello Holberton School!');
+    res.end();
+})
+app.listen(1245)
+module.exports = app

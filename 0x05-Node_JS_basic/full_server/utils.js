@@ -1,22 +1,12 @@
 //const { rejects } = require('node:assert');
 const fs = require('node:fs');
 //const { resolve } = require('node:path');
-function countStudents(path) {
+function readDatabase(path) {
     return new Promise((resolve, reject) => {
         fs.readFile(path, 'utf-8', (err, data) => {
             if (err) {
-                throw new Error('Cannot load the database')
-                reject();
+                reject(new Error('Cannot load the database'));
             } else {
-                const lines = data.split('\n').slice(1);
-                let count = 0;
-                for (let line of lines) {
-                    if (line) {
-                        count += 1;
-                    }
-                }
-                console.log(`Number of students: ${count}`)
-                // this part is pending
                 const studentsRows = data.split('\n').slice(1);
                 const students = studentsRows.map((row) => {
                     const data = row.split(',')
@@ -37,17 +27,9 @@ function countStudents(path) {
                     // push student's first name to the list
                     groups[student.field].push(student.firstname)
                 });
-                // console.log(groups)
-                for (let group in groups) {
-                    const count = groups[group].length;
-                    const studentGroup = groups[group].join(', ')
-                    if (studentGroup) {
-                        console.log(`Number of students in ${group}: ${count}. List: ${studentGroup}`);
-                    }
-                }
-                resolve();
+                resolve(groups);
             }
         })
     })
 }
-module.exports = countStudents;
+module.exports = readDatabase;

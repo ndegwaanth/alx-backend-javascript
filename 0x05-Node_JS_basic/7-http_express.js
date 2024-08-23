@@ -1,8 +1,7 @@
-//const { listen } = require('express/lib/application');
-const http = require('http');
-
-//const { rejects } = require('node:assert');
+const express = require('express');
+const app = express();
 const fs = require('node:fs');
+const path = require('node:path');
 //const { resolve } = require('node:path');
 function countStudents(path) {
     return new Promise((resolve, reject) => {
@@ -63,17 +62,13 @@ function countStudents(path) {
         })
     })
 }
-
-const app = http.createServer(function(req, res) {
-    let url = req.url;
-    if (url === '/') {
-        res.write('Hello Holberton School!');
-        res.end();
-    } else if (url === '/students') {
-        res.write('This is the list of our students\n');
-        const path = process.argv[2];
-        countStudents(path).then((message) => res.end(message))
-    }
+app.get('/', (req, res) => {
+    res.send('Hello Holberton School!');
+})
+app.get('/students', (req, res) => {
+    res.write('This is the list of our students\n');
+    const path = process.argv[2];
+    countStudents(path).then(message => res.end(message)).catch(err => res.end(err));
 })
 app.listen(1245)
 module.exports = app
